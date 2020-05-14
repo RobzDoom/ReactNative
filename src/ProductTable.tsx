@@ -12,31 +12,19 @@ export interface Product {
 
 interface Props {
   products: Product[];
-  title: string;
 }
 
-const ProductTable: React.FC<Props> = ({ products, title }) => {
+const ProductTable: React.FC<Props> = ({ products }) => {
   const listProduct = products.map((indProdutct) => (
     <IndividualItem
       itemName={indProdutct.name}
       itemCategory={indProdutct.category}
       itemPrice={indProdutct.price}
+      isStocked={indProdutct.stocked}
     />
   ));
-
-  //   let lastCategory: string | null = null
-  // debugger
-  //   const listProduct = products.map((indProduct) => {
-  //     if (lastCategory !== indProduct.category) {
-  //       lastCategory = indProduct.category
-  //       return <Categories categoryName={indProduct.category} />;
-  //     }
-  //     lastCategory = indProduct.category
-  //   });
-
   return (
   <>
-  <SearchBar />
     <table>
       <tr>
         <th>Department</th>

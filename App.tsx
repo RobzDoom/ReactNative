@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {LoggingButton} from "./src/LogInButton";
 import {Clock} from "./src/Clock";
 import { Welcome } from './src/Welcome';
-import {FilterableTable} from './src/FilterarbleProductTable'
+import {FilterableProductTable} from './src/FilterarbleProductTable'
 import {ProductTable, Product} from './src/ProductTable'
 
 
@@ -16,7 +16,8 @@ export default class App extends React.Component<any>{
   {
     return (
       <View style={styles.container}>
-        <ProductTable products={PRODUCTS} title={title} ></ProductTable>   
+        <FilterableProductTable productsForAll={PRODUCTS}/>
+        {/* <ProductTable products={PRODUCTS}></ProductTable>    */}
       </View>
     );
   }
@@ -42,4 +43,4 @@ const PRODUCTS: Product []= [
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 ];
 
-const title = "Here Are my Items"
+const title = "Here Are my Items";
