@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ProductTable } from "./ProductTable";
 import { SearchBar } from "./SearchBar";
@@ -14,10 +14,14 @@ interface Props {
   productsForAll: Product[];
 }
 
+debugger
 const FilterableProductTable: React.FC<Props> = ({ productsForAll }) => {
+    debugger
+const[searchString, setString] = useState('None')
+
   return (
     <div>
-      <SearchBar />
+      <SearchBar keysTyped={searchString}/>
       <ProductTable products={productsForAll} />
     </div>
   );
