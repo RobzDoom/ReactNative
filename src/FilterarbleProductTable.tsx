@@ -14,14 +14,21 @@ interface Props {
   productsForAll: Product[];
 }
 
-debugger
+interface textName{
+    textChange: string
+}
+
 const FilterableProductTable: React.FC<Props> = ({ productsForAll }) => {
-    debugger
 const[searchString, setString] = useState('None')
+
+const handledTextChange = (searchString: string) =>{
+    setString(searchString);
+    console.log("Filter Component:" + searchString);
+}
 
   return (
     <div>
-      <SearchBar keysTyped={searchString}/>
+      <SearchBar keysTyped={searchString} fn1={handledTextChange}/>
       <ProductTable products={productsForAll} />
     </div>
   );
