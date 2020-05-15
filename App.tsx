@@ -1,7 +1,6 @@
 import React, { Props } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {LoggingButton} from "./src/LogInButton";
-import {Clock} from "./src/Clock";
 import { Welcome } from './src/Welcome';
 import {FilterableProductTable} from './src/FilterarbleProductTable'
 import {ProductTable, Product} from './src/ProductTable'

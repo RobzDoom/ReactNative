@@ -19,7 +19,7 @@ interface textName{
 }
 
 const FilterableProductTable: React.FC<Props> = ({ productsForAll }) => {
-const[searchString, setString] = useState('None')
+const[searchString, setString] = useState('')
 
 const handledTextChange = (searchString: string) =>{
     setString(searchString);
@@ -29,7 +29,7 @@ const handledTextChange = (searchString: string) =>{
   return (
     <div>
       <SearchBar keysTyped={searchString} fn1={handledTextChange}/>
-      <ProductTable products={productsForAll} />
+      <ProductTable products={productsForAll} searchString={searchString}/>
     </div>
   );
 };

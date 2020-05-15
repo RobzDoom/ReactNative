@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { IndividualItem } from "./IndividualItem";
-import { SearchBar } from "./SearchBar"
-
-
+import { SearchBar } from "./SearchBar";
 
 export interface Product {
   category: string;
@@ -14,19 +12,25 @@ export interface Product {
 
 interface Props {
   products: Product[];
+  searchString: string;
 }
 
-const ProductTable: React.FC<Props> = ({ products }) => {
-  const listProduct = products.map((indProdutct) => (
-    <IndividualItem
-      itemName={indProdutct.name}
-      itemCategory={indProdutct.category}
-      itemPrice={indProdutct.price}
-      isStocked={indProdutct.stocked}
-    />
-  ));
+const ProductTable: React.FC<Props> = ({ products, searchString }) => {
+  const listProduct = products.map((indProdutct) => {
+    //debugger
+    if (indProdutct.name.indexOf(searchString) === -1) {
+      return;
+    }
+    return (
+      <IndividualItem
+        itemName={indProdutct.name}
+        itemCategory={indProdutct.category}
+        itemPrice={indProdutct.price}
+        isStocked={indProdutct.stocked}
+      />
+    );
+  });
   return (
-  <>
     <table>
       <tr>
         <th>Department</th>
@@ -35,7 +39,6 @@ const ProductTable: React.FC<Props> = ({ products }) => {
       </tr>
       {listProduct}
     </table>
-  </>
   );
 };
 
